@@ -76,7 +76,7 @@ header.top{border-bottom:1px solid var(--line);background:var(--card)}
 @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 
 .tfig{margin:14px 0 4px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper);line-height:0}
-.tfig img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.tfig img{display:block;width:100%;height:auto;max-height:620px;object-fit:contain}
 .tfig.placeholder{aspect-ratio:16/6;display:flex;align-items:center;justify-content:center;line-height:1.4;border-style:dashed}
 .tfig.placeholder span{font-family:var(--mono);font-size:12px;color:var(--ink-soft);padding:14px;text-align:center}
 
@@ -478,7 +478,7 @@ function testHTML(t){
   let img = "";
   const path = `images/${t.id}.jpg`;
   if(DEV){
-    img = `<div class="tfig placeholder"><span>image slot · drop <b>${path}</b> here<br>(16:9 landscape)</span></div>`;
+    img = `<div class="tfig placeholder"><span>image slot · drop <b>${path}</b> here<br>(any ratio — the whole image is shown)</span></div>`;
   } else {
     img = `<figure class="tfig"><img src="${path}" alt="${t.name}" onerror="this.closest('.tfig').remove()"></figure>`;
   }
